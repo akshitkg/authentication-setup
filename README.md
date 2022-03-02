@@ -1,1 +1,1 @@
-# authetication-setup
+Make a script that will do the initial setup according to the task I am going to work on like setting up my branches and everything and also intializing the GitHub repo just by simple commands according to the work I am going to do
