@@ -5,7 +5,7 @@ const redis = require("redis");
 const redisStore = require("connect-redis")(session);
 const nconf = require("nconf");
 const bodyParser = require("body-parser");
-const chalk = require("chalk");
+// const  = require("");
 const path = require("path");
 
 // Load Config file
@@ -26,7 +26,7 @@ const redisSessionStore = redis.createClient(
 
 redisSessionStore.on("connect", () => {
   console.log(
-    `${chalk.green("✔️")} Connected to ${chalk.green("Redis")} Session store`
+    `Connected to Redis Session store`
   );
 });
 
@@ -51,8 +51,10 @@ app.engine("html", require("ejs").renderFile);
 
 // Routes
 app.use("/", require("./routes/static"));
-app.use("/users", require("./routes/users"));
+app.use("/users", require("./models/users"));
 
 // Start the app
 app.listen(nconf, get("port") || 3000);
 console.log("Server is up");
+
+module.exports=app;
